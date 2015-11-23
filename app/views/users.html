@@ -1,0 +1,51 @@
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+<form name="exampleForm">
+<div class="form-group">
+      <label>Name:</label>
+      <input type="text" name="name" ng-model="name" class="form-control" required>
+      <div ng-messages="exampleForm.name.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Email:</label>
+      <input type="text" name="email" ng-model="email" class="form-control" required>
+      <div ng-messages="exampleForm.email.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Password:</label>
+      <input type="password" name= "pass" ng-model="pass" class="form-control" required>
+      <div ng-messages="exampleForm.pass.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Confirm Password:</label>
+      <input type="password" name= "cpass" ng-model="cpass" class="form-control" required>
+      <div ng-messages="exampleForm.pass.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Contact No:</label>
+      <input type="text" name="cno" ng-model="cno" class="form-control" required>
+      <div ng-messages="exampleForm.cno.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+    </br>
+      <button type="button" class="btn btn-primary" ng-click="add()">Add User</button></br>
+</div>
+</form>
+
+
+
+<table st-table="rowCollection" class="table table-striped">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Contact</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="row in rowCollection">
+		<td>{{row.namerow}}</td>
+		<td>{{row.mailrow}}</td>
+		<td>{{row.cnorow}}</td>
+	</tr>
+	</tbody>
+</table>

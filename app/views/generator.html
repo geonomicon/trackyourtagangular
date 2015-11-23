@@ -1,0 +1,53 @@
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+<form name="qrform">
+<div class="form-group">
+      <label>Product Name:</label>
+      <input type="text" name="pname" ng-model="pname" class="form-control" required>
+      <div ng-messages="qrform.pname.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Quantity:</label>
+      <input type="text" name="qty" ng-model="qty" class="form-control" required>
+      <div ng-messages="qrform.qty.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Product ID:</label>
+      tyt<input type="text" name="qrid" ng-model="qrid" class="form-control" required>
+      <div ng-messages="qrform.qrid.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Seller's City:</label>
+      <input type="text" name="startloc" ng-model="startloc" class="form-control" required>
+      <div ng-messages="qrform.startloc.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Shipping and Billing Address City:</label>
+      <input type="text" name="endloc" ng-model="endloc" class="form-control" required>
+      <div ng-messages="qrform.endloc.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Receiver's Email</label>
+      <input type="text" name="receiveremail" ng-model="receiveremail" class="form-control" required>
+      <div ng-messages="qrform.receiveremail.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <!-- <label>Tin No:</label>
+      <input type="text" name="tin" ng-model="email" class="form-control" required>
+      <div ng-messages="qrform.tin.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Invoice No:</label>
+      <input type="text" name="inno" ng-model="cno" class="form-control" required>
+      <div ng-messages="qrform.inno.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div> -->
+    </br>
+      <button type="button" class="btn btn-primary" ng-click="generate()">Generate Image</button>
+      <button type="button" class="btn btn-primary" ng-click="print('printablediv')">Print QR Code</button></br>
+</div>
+</form>
+
+
+<div id="printablediv">
+  <img src="{{imgurl}}"></br>
+</div>
