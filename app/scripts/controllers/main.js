@@ -18,6 +18,7 @@ angular.module('trackyourtagangularApp')
    $scope.login = function(authMethod) {
    myService.$authWithOAuthRedirect(authMethod).then(function(authData) {
       console.log(authData);
+      $location.path('/about');
     }).catch(function(error) {
       if (error.code === 'TRANSPORT_UNAVAILABLE') {
         myService.$authWithOAuthPopup(authMethod).then(function(authData) {
