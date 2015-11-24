@@ -2,7 +2,10 @@ angular.module('trackyourtagangularApp').run(['$templateCache', function($templa
   'use strict';
 
   $templateCache.put('views/about.html',
-    "<uib-alert ng-repeat=\"alert in alerts\" type=\"{{alert.type}}\" close=\"closeAlert($index)\">{{alert.msg}}</uib-alert> <ng-map center=\"{{center}}\"> <marker position=\"{{marker}}\" title=\"{{markername}}\" animation=\"Animation.BOUNCE\"></marker> </ng-map>  <input type=\"text\" name=\"trackid\" ng-model=\"trackid\" class=\"form-control\" required> <br> <button type=\"button\" class=\"btn btn-primary\" ng-click=\"locate()\">Track Your Package</button> <br> <table st-table=\"rowCollection\" class=\"table table-striped\"> <thead> <tr> <th>Name</th> <th>Start Point</th> <th>End Point</th> <th>Quantity</th> <th>Holder Email</th> </tr> </thead> <tbody> <tr> <td>{{alldetail.pname}}</td> <td>{{alldetail.startloc}}</td> <td>{{alldetail.endloc}}</td> <td>{{alldetail.qty}}</td> <td>{{alldetail.holderemail}}</td> </tr> </tbody> </table>"
+    "<uib-alert ng-repeat=\"alert in alerts\" type=\"{{alert.type}}\" close=\"closeAlert($index)\">{{alert.msg}}</uib-alert> <ng-map center=\"{{center}}\"> <marker position=\"{{marker}}\" title=\"{{markername}}\" animation=\"Animation.BOUNCE\"></marker> </ng-map> <br> <br> <!-- <input type=\"text\" name=\"trackid\" ng-model=\"trackid\" class=\"form-control\" required>\n" +
+    "<br>\n" +
+    "<button type=\"button\" class=\"btn btn-primary\" ng-click=\"locate()\">Track Your Package</button></br>\n" +
+    "<br> --> <div class=\"col-lg-12\"> <div class=\"input-group\"> <input type=\"text\" class=\"form-control\" placeholder=\"Trackid Here\" ng-model=\"trackid\"> <span class=\"input-group-btn\"> <button class=\"btn btn-default\" type=\"button\" ng-click=\"locate()\">Go!</button> </span> </div><!-- /input-group --> </div><!-- /.col-lg-6 --> <br> <br> <table st-table=\"rowCollection\" class=\"table table-striped\"> <thead> <tr> <th>Name</th> <th>Start Point</th> <th>End Point</th> <th>Quantity</th> <th>Holder Email</th> </tr> </thead> <tbody> <tr> <td>{{alldetail.pname}}</td> <td>{{alldetail.startloc}}</td> <td>{{alldetail.endloc}}</td> <td>{{alldetail.qty}}</td> <td>{{alldetail.holderemail}}</td> </tr> </tbody> </table>"
   );
 
 
@@ -17,7 +20,7 @@ angular.module('trackyourtagangularApp').run(['$templateCache', function($templa
 
 
   $templateCache.put('views/main.html',
-    "<div class=\"jumbotron\"> <h1>Track Your Tag</h1> </div> <p><button type=\"button\" class=\"btn btn-primary btn-block\" ng-click=\"login('google')\">Start Tracking</button></p>"
+    "<div class=\"jumbotron\"> <h1>Track Your Tag</h1> </div> <p><button type=\"button\" class=\"btn btn-primary btn-block\" ng-click=\"login()\">Start Tracking</button></p>"
   );
 
 

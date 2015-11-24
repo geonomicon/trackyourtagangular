@@ -41,6 +41,4 @@ angular.module('trackyourtagangularApp')
        $scope.alerts.push({type: 'danger', msg: 'All Fields Are Required'});
      }
 };
-
-
-  });
+});

@@ -2,11 +2,22 @@
 <ng-map center="{{center}}">
 <marker position="{{marker}}" title="{{markername}}" animation="Animation.BOUNCE"></marker>
 </ng-map>
-</br>
-<input type="text" name="trackid" ng-model="trackid" class="form-control" required>
+<br>
+<br>
+<!-- <input type="text" name="trackid" ng-model="trackid" class="form-control" required>
 <br>
 <button type="button" class="btn btn-primary" ng-click="locate()">Track Your Package</button></br>
-<br>
+<br> -->
+<div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Trackid Here" ng-model="trackid">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="locate()">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+	<br>
+	<br>
 <table st-table="rowCollection" class="table table-striped">
 	<thead>
 	<tr>
