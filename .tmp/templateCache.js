@@ -17,7 +17,7 @@ angular.module('trackyourtagangularApp').run(['$templateCache', function($templa
 
 
   $templateCache.put('views/main.html',
-    "<div class=\"jumbotron\"> <h1>Track Your Tag</h1> <img src=\"images/yeoman.png\"><br> </div> <p><button type=\"button\" class=\"btn btn-primary btn-block\" ng-click=\"login('google')\">Start Tracking</button></p>"
+    "<div class=\"jumbotron\"> <h1>Track Your Tag</h1> </div> <p><button type=\"button\" class=\"btn btn-primary btn-block\" ng-click=\"login('google')\">Start Tracking</button></p>"
   );
 
 
