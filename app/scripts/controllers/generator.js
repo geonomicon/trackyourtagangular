@@ -27,13 +27,13 @@ angular.module('trackyourtagangularApp')
             var divElements = document.getElementById(divID).innerHTML;
             var oldPage = document.body.innerHTML;
             document.body.innerHTML =
-              "<html><head><title></title></head><body>" +
-              divElements + "</body>";
+              '<html><head><title></title></head><body>' +
+              divElements + '</body>';
             window.print();
             document.body.innerHTML = oldPage;
-    }
+    };
 
-    $scope.imgurl="http://placehold.it/350x150";
+    $scope.imgurl='http://placehold.it/350x150';
 
 
     $scope.generate = function(){
@@ -63,9 +63,8 @@ angular.module('trackyourtagangularApp')
       }
 
       else{
-        $scope.imgurl="https://api.qrserver.com/v1/create-qr-code/?size=450x450&data="+$scope.qrid;
-        var url = "https://trackyourtag.herokuapp.com/droid/"+$scope.qrid+"/"+$scope.pname+"/"+$scope.startloc+"/"
-                  +$scope.endloc+"/"+$scope.qty+"/"+$scope.receiveremail;
+        $scope.imgurl='https://api.qrserver.com/v1/create-qr-code/?size=450x450&data='+$scope.qrid;
+        var url = 'https://trackyourtag.herokuapp.com/droid/'+$scope.qrid+'/'+$scope.pname+'/'+$scope.startloc+'/'+$scope.endloc+'/'+$scope.qty+'/'+$scope.receiveremail;
         var droute = Restangular.oneUrl('droute', url);
         droute.post().then(function(data){
           console.log(data);
@@ -74,7 +73,7 @@ angular.module('trackyourtagangularApp')
         });
       }
 
-    }
+    };
 
 
 

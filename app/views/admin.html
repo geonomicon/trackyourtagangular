@@ -1,1 +1,22 @@
-<p>This is the admin view.</p>
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+<form name="admin">
+<div class="form-group">
+      <label>Email:</label>
+      <input type="text" name="email" ng-model="email" class="form-control" required>
+      <div ng-messages="admin.email.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+      <label>Password:</label>
+      <input type="password" name= "pass" ng-model="pass" class="form-control" required>
+      <div ng-messages="admin.pass.$error">
+          <div ng-message="required"><i>This field is required</i></div>
+      </div>
+    </br>
+      <button type="button" class="btn btn-primary" ng-click="login()">Authenticate</button></br>
+</div>
+</form>
+<div ng-show="myValue">
+      <button type="button" class="btn btn-primary" ng-click="generatorgo()">Generate Tag</button>
+
+      <button type="button" class="btn btn-primary" ng-click="usersgo()">Add New User</button></br>
+</div>

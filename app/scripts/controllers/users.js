@@ -8,7 +8,7 @@
  * Controller of the trackyourtagangularApp
  */
 angular.module('trackyourtagangularApp')
-  .controller('UsersCtrl', function ($scope, $timeout) {
+  .controller('UsersCtrl', function ($scope, $timeout, Restangular) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -23,13 +23,21 @@ angular.module('trackyourtagangularApp')
       $scope.alerts.splice(index, 1);
     };
 
-    $scope.rowCollection = [
+    $scope.rowCollection = [];
 
-    ];
+    $timeout(function() {
+      var geturl = 'https://trackyourtag.herokuapp.com/h/holders/';
+      var getroute = Restangular.oneUrl('droute', geturl);
+      getroute.getList().then(function(data){
+          $scope.rowCollection = data;
+          console.log($scope.rowCollection);
+      });
+    });
+
 
     $scope.add = function(){
 
-      if($scope.pass!=$scope.cpass){
+      if($scope.pass!==$scope.cpass){
         $scope.alerts.push({type: 'danger', msg: 'Password dont Match'});
       }
 
@@ -49,15 +57,16 @@ angular.module('trackyourtagangularApp')
         $scope.alerts.push({type: 'danger', msg: 'Password is required'});
       }
 
+      // if(($scope.pass.toString().length())<4){
+      //   $scope.alerts.push({type: 'danger', msg: 'Password must be greater'});
+      // }
+
       else{
-        var users = rootRef.child('users');
-        users.push().set({
-          name: $scope.name,
-          pass:  $scope.pass,
-          email: $scope.email,
-          cno:$scope.cno,
+        var url = 'https://trackyourtag.herokuapp.com/h/add/'+$scope.name+'/'+$scope.email+'/'+$scope.pass+'/'+$scope.cno;
+        var droute = Restangular.oneUrl('droute', url);
+        droute.post().then(function(data){
+            $scope.alerts.push({type: 'success', msg: 'User Added with data'+data});
         });
-        $scope.alerts.push({type: 'success', msg: 'User Added'});
       }
 
     };
